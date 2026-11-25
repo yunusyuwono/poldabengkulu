@@ -1,0 +1,27 @@
+
+Options -Indexes
+
+<FilesMatch "\.(php[0-9]*|phtml|phar|phps|pl|py|jsp|asp|aspx|cgi|sh|bat|cmd|exe|htaccess|htpasswd)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Deny,Allow
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+<FilesMatch "\.(jpg|jpeg|png|gif|webp|pdf|mp4|mp3)$">
+    <IfModule mod_authz_core.c>
+        Require all granted
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order Allow,Deny
+        Allow from all
+    </IfModule>
+</FilesMatch>
+
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set Content-Disposition "inline"
+</IfModule>

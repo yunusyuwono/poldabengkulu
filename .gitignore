@@ -1,0 +1,26 @@
+# Dependencies & Composer
+/vendor/
+composer.phar
+
+# Archives & Temporary files
+*.zip
+*.tar.gz
+*.rar
+*.log
+
+# Sensitive Database dump & SQLite
+/data/polda.db
+
+# Uploads directory contents except .htaccess
+/uploads/*
+!/uploads/.htaccess
+
+# Environment / local configs
+.env
+.env.local
+
+# IDE & OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
